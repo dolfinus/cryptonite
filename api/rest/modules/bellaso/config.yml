@@ -1,0 +1,11 @@
+name: bellaso
+init:
+  - name: alphabet
+    type: alphabet
+cipher:
+  encrypt: &encrypt
+    format: str
+    params: &params
+      - name: password
+        type: str
+  decrypt: *encrypt

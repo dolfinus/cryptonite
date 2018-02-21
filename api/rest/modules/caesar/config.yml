@@ -1,0 +1,12 @@
+name: caesar
+init:
+  - name: alphabet
+    type: alphabet
+cipher:
+  encrypt: &encrypt
+    format: str
+    params:
+      - name: shift
+        type: int
+        default: 3
+  decrypt: *encrypt

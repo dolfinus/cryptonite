@@ -1,0 +1,11 @@
+name: polibiy
+init:
+- name: alphabet
+  type: alphabet
+cipher:
+  encrypt:
+    format: str
+    params:
+  decrypt:
+    format: int
+    params:

@@ -1,0 +1,14 @@
+name: spiral
+cipher:
+  encrypt:
+    format: str
+    params: &params
+      - name: begin
+        type: str{2}
+      - name: clock
+        type: bool
+      - name: center
+        type: bool
+  decrypt:
+    format: str
+    params: *params

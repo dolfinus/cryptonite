@@ -1,0 +1,46 @@
+name: elliptic
+init:
+- name: a
+  type: int
+- name: b
+  type: int
+- name: c
+  type: int
+- name: mod
+  type: prime
+cipher:
+  encrypt:
+    format: int
+    params: &encrypt
+      - name: p
+        type: elliptic_point
+      - name: q
+        type: elliptic_point
+      - name: d
+        type: int
+      - name: rand
+        type: '[int]'
+  decrypt:
+    format: (int,int)
+    params:
+      - name: p
+        type: elliptic_point
+      - name: d
+        type: int
+eds:
+  sign:
+    format: int
+    params:
+      - name: G
+        type: elliptic_point
+      - name: k
+        type: int
+  check:
+    format: int
+    params:
+      - name: Y
+        type: elliptic_point
+      - name: r
+        type: int
+      - name: s
+        type: int

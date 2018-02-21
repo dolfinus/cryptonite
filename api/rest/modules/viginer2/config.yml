@@ -1,0 +1,11 @@
+name: viginer2
+init:
+  - name: alphabet
+    type: alphabet
+cipher:
+  encrypt: &encrypt
+    format: str
+    params:
+      - name: password
+        type: str
+  decrypt: *encrypt
