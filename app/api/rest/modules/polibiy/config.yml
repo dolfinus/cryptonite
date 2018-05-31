@@ -1,0 +1,12 @@
+id: polibiy
+categories:
+  - stream
+  - substitution
+init:
+  - name: alphabet
+    type: alphabet
+cipher:
+  encrypt:
+    format: str
+  decrypt:
+    format: int

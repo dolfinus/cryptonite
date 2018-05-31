@@ -1,0 +1,13 @@
+id: viginer2
+categories:
+  - stream
+  - substitution
+init:
+  - name: alphabet
+    type: alphabet
+  - name: password
+    type: str
+cipher:
+  encrypt: &encrypt
+    format: str
+  decrypt: *encrypt

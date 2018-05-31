@@ -1,0 +1,13 @@
+id: tritemius
+categories:
+  - stream
+  - substitution
+init:
+  - name: alphabet
+    type: alphabet
+  - name: shift
+    type: int
+cipher:
+  encrypt: &encrypt
+    format: str
+  decrypt: *encrypt

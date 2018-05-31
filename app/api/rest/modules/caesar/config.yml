@@ -1,0 +1,14 @@
+id: caesar
+categories:
+  - stream
+  - substitution
+init:
+  - name: alphabet
+    type: alphabet
+  - name: shift
+    type: int
+    default: 3
+cipher:
+  encrypt: &encrypt
+    format: str
+  decrypt: *encrypt

@@ -1,0 +1,48 @@
+uwsgi: &web
+  pypy-wsgi: app:app
+  module: app:app
+  master: true
+  processes: 4
+  http-socket: 0.0.0.0:5000
+  socket: cryptonite.sock
+  chmod-sock: 660
+  vaccum: true
+  die-on-term: true
+  enable-threads: true
+
+#memcached: &memcached
+#  default_timeout: 600
+#  key_prefix: cryptonite
+#  servers: ['127.0.0.1:11211']
+#  binary: true
+#  behaviors:
+#    ketama: true
+#    tcp_nodelay: true
+
+db: &db
+  database_uri: postgres://cryptonite:cryptonite@db/cryptonite
+  #sqlite:///./storage/app.db
+  #postgres://user:pass@localhost/db
+  #mysql://user:pass@localhost:5432/db
+  #oracle://user:pass@localhost:1521/db
+  #etc http://docs.sqlalchemy.org/en/latest/core/engines.html
+  track_modifications: false
+
+app:
+  default: &default
+    web: *web
+    #cache: *memcached
+    db: *db
+    max_file_size: 1073741824 #1Mb
+    secret_expires: 86400
+    admin:
+      name: admin
+      password: q123
+  production:
+    <<: *default
+    debug: false
+    secret_key: 'production_secret'
+  development:
+    <<: *default
+    debug: true
+    secret_key: 'development_secret'

@@ -1,0 +1,17 @@
+id: rsa
+categories:
+  - stream
+  - substitution
+init:
+  - name: mod
+    type: prime
+  - name: e
+    type: int
+cipher:
+  encrypt:
+    format: int
+  decrypt:
+    format: int
+    params:
+      - name: d
+        type: int

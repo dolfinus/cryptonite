@@ -1,0 +1,13 @@
+id: matrix
+categories:
+  - block
+  - substitution
+cipher:
+  encrypt:
+    format: int
+    params: &params
+      - name: matrix
+        type: matrix
+  decrypt:
+    format: int
+    params: *params

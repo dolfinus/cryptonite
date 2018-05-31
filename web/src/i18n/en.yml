@@ -1,0 +1,122 @@
+en:
+  navbar:
+    main: Main
+    articles: Articles
+    article: Articles
+    modules:
+      main: Modules
+      ciphers: Ciphers
+      cipher: Ciphers
+      eds: EDS
+      ds: EDS
+      instruments: Instruments
+      instrument: Instruments
+    test:
+      main: Tests
+      edit: Edit
+      run: Run
+      results: Results
+    users:
+      main: Users
+      settings: Settings
+      logout: Logout
+  button:
+    delete: Delete
+    save: Save
+    create: Create
+    close: Close
+    skip: Skip
+    next: Next
+    download: Download
+    encrypt: Encrypt
+    decrypt: Decrypt
+    sign: Sign
+    check: Check
+    run: Run
+    continue: Continue
+    results: Show results
+    sign_in: Sign in
+  label:
+    title: Title
+    content: Content
+    category: Category
+    id: ID
+    name: Name
+    user_name: Full name
+    first_name: First name
+    second_name: Second name
+    last_name: Last name
+    login: Login
+    password: Password
+    is_admin: Is administrator
+    max_duration: Maximal duration (in minutes)
+    not_before: Start date
+    not_after: Over date
+    state: State
+    finished: Finished
+    running: Running
+    not_started: Not started
+    over: Over
+    begin: Begin time
+    end: Last updated
+    current: 'Current time: %{time}'
+    to_end: 'To end of test: %{time}'
+    score: Score
+    answers_count: Correct answers
+    percent: Percentage
+    questions_count: Questions count
+    results: Users scores
+    alphabet: Alphabet
+    shift: Shift
+    mod: Modulo
+    rand: Random vector
+  instruments:
+    freq: Freq analysis
+  instrument:
+    monogram: Chars freq diagram
+    bigram: Bigrams freq diagram
+    trigram: Trigrams freq diagram
+  eds:
+    stream: Stream EDS
+    block: Block EDS
+  ds: &ds
+    elliptic: Elliptic
+  ciphers:
+    stream: Stream ciphers
+    block: Block ciphers
+  cipher:
+    <<: *ds
+    atbash: Atbash
+    bellaso: Bellaso
+    caesar: Caesar
+    elliptic: Elliptic
+    polibiy: Polibiy
+    rsa: RSA
+    tritemius: Tritemius
+    viginer: Viginer
+    viginer2: Viginer (2 variant)
+  users:
+    users: Students
+    administrators: Professors
+  user:
+    new: New user
+  article:
+    new: New article
+  test_edit:
+    new: New test
+  tests_result:
+    finished-tests: Finished tests
+    over-tests: Over tests
+  alphabet:
+    en: English
+    ru: Russian
+  placeholder:
+    title: Input article title
+    content: Insert text here ...
+    test_name: Input test name
+    empty_result: No tests were finished!
+    skipped_answer: Skipped answer
+    not_selected: Select menu item do display
+    no_tests: No tests are available!
+    login: '8140000'
+    password: 'qwerty'

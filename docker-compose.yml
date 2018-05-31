@@ -1,0 +1,42 @@
+
+version: '2'
+services:
+  web:
+    build: ./web
+    image: cryptonite:web
+    container_name: web
+    ports:
+      - "80:80"
+      - "443:443"
+    depends_on:
+      - app
+    links:
+      - app
+  app:
+    build: ./app
+    image: cryptonite:app
+    container_name: app
+    command: "timeout t $DB_TIMEOUT ./entrypoint.sh --quiet --child --host=$DB_HOST --port=$DB_PORT"
+    ports:
+      - "5000:5000"
+    depends_on:
+      - db
+    environment: 
+      FLASK_APP: app.py
+      DB_HOST: db
+      DB_TIMEOUT: 30
+      DB_PORT: 5432
+    volumes:
+      - ./app:/opt/cryptonite
+    links:
+      - db
+  db:
+    image: postgres:alpine
+    ports:
+      - "5432:5432"
+    environment: 
+      POSTGRES_DB: cryptonite
+      POSTGRES_USER: cryptonite
+      POSTGRES_PASSWORD: cryptonite
+    volumes:
+      - ./app/storage/db/postgres/init.sql:/docker-entrypoint-initdb.d/init.sql

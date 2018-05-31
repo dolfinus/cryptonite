@@ -1,0 +1,121 @@
+ru:
+  navbar:
+    main: Главное меню
+    articles: Материалы
+    article: Материалы
+    modules:
+      main: Модули
+      ciphers: Шифры
+      cipher: Шифры
+      eds: ЭЦП
+      ds: ЭЦП
+      instruments: Инструменты
+      instrument: Инструменты
+    test:
+      main: Тестирование
+      edit: Правка
+      run: Пройти
+      results: Результаты
+    users:
+      main: Пользователи
+      settings: Настройки
+      logout: Выход
+  button:
+    delete: Удалить
+    save: Сохранить
+    create: Создать
+    close: Завершить
+    skip: Пропустить
+    next: Далее
+    download: Скачать
+    encrypt: Зашифровать
+    decrypt: Расшифровать
+    sign: Подписать
+    check: Проверить
+    run: Начать
+    continue: Продолжить
+    results: Перейти к результатам
+    sign_in: Вход
+  label:
+    title: Заголовок
+    content: Текст
+    category: Категория
+    id: Идентификатор
+    name: Название
+    user_name: ФИО
+    first_name: Имя
+    second_name: Отчество
+    last_name: Фамилия
+    login: Логин
+    password: Пароль
+    is_admin: Администратор
+    max_duration: Длительность (в минутах)
+    not_before: Дата открытия
+    not_after: Дата завершения
+    state: Статус
+    finished: Пройден
+    over: Истекло время
+    running: Начат
+    not_started: Не начат
+    begin: Время начала
+    end: Последний ответ
+    current: 'Текущее время: %{time}'
+    to_end: 'До конца теста: %{time}'
+    score: Оценка
+    questions_count: Количество вопросов
+    answers_count: Правильных ответов
+    percent: Процент выполнения
+    results: Ведомость
+    alphabet: Алфавит
+    shift: Смещение
+    mod: Модуль
+    rand: Случайный вектор
+  instruments:
+    freq: Частотный анализ
+  instrument:
+    monogram: Символы
+    bigram: Биграммы
+    trigram: Триграммы
+  eds:
+    stream: Потоковые ЭЦП
+    block: Блочные ЭЦП
+  ds: &ds
+    elliptic: Эллиптический
+  ciphers:
+    stream: Потоковые шифры
+    block: Блочные шифры
+  cipher:
+    <<: *ds
+    atbash: Атбаш
+    bellaso: Белазо
+    caesar: Цезаря
+    polibiy: Квадрат Полибия
+    rsa: RSA
+    tritemius: Тритемия
+    viginer: Вижинера
+    viginer2: Вижинера (2 вариант)
+  users:
+    users: Студенты
+    administrators: Преподаватели
+  user:
+    new: Добавить пользователя
+  article:
+    new: Добавить материал
+  test_edit:
+    new: Добавить тест
+  tests_result:
+    finished-tests: Пройденные тесты
+    over-tests: Истекшие тесты
+  alphabet:
+    en: Английский
+    ru: Русский
+  placeholder:
+    title: Введите название материала
+    content: Введите текст ...
+    test_name: Введите имя теста
+    empty_result: Не пройдено ни одного теста!
+    skipped_answer: Пропущено
+    not_selected: Выберите пункт меню
+    no_tests: Доступные тесты отсутствуют!
+    login: '8140000'
+    password: 'qwerty'

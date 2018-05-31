@@ -1,0 +1,11 @@
+id: cardano
+categories:
+  - stream
+  - transposition
+cipher:
+  encrypt: &encrypt
+    format: str
+    params:
+      - name: grid
+        type: rotate_grid
+  decrypt: *encrypt

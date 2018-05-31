@@ -1,8 +1,0 @@
-name: atbash
-init:
-  - name: alphabet
-    type: alphabet
-cipher:
-  encrypt: &encrypt
-    format: str     
-  decrypt: *encrypt

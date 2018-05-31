@@ -1,0 +1,11 @@
+id: atbash
+categories:
+  - stream
+  - substitution
+init:
+  - name: alphabet
+    type: alphabet
+cipher:
+  encrypt: &encrypt
+    format: str
+  decrypt: *encrypt

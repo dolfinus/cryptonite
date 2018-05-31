@@ -3,8 +3,25 @@
     "plugins": [
       "html"
     ],
+    "env": {
+      "browser": true,
+      "node": true
+    },
     "rules": {
-    	"no-debugger": "off"
+      "semi": 2,
+      "key-spacing": 0,
+      "no-multi-spaces": 0,
+      "no-debugger": "off",
+      "no-proto": 0,
+      "constructor-super": 0,
+      "camelcase": 0,
+      "no-unused-vars": 0,
+      "space-in-parens": 0,
+      "space-infix-ops": 0,
+      "no-extend-native": 0,
+      "new-cap": 0
+    },
+    "parserOptions": {
+      "ecmaVersion": 2017
     }
-
 }

@@ -1,0 +1,17 @@
+id: enigma
+categories:
+  - stream
+  - substitution
+init:
+  - name: alphabet
+    type: alphabet
+  - name: rings
+    type: dict(char){3,5}
+  - name: reflector
+    type: char
+  - name: flip
+    type: dict
+cipher:
+  encrypt: &encrypt
+    format: str
+  decrypt: *encrypt
