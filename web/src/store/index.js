@@ -98,6 +98,22 @@ let initial_state = {
           }
         }
       },
+      enigma: {
+        id: 'enigma',
+        fields: {
+          init: [],
+          encrypt: {
+            format: 'str',
+            params: [],
+            value: ''
+          },
+          decrypt: {
+            format: 'str',
+            params: [],
+            value: ''
+          }
+        }
+      },
       polibiy: {
         id: 'polibiy',
         fields: {
