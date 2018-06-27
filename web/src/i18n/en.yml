@@ -70,6 +70,12 @@ en:
     shift: Shift
     mod: Modulo
     rand: Random vector
+    beta: β
+    gamma: γ
+    rings: Rings numbers
+    keys: Ring positions
+    reflector: Reflector name
+    flip: Flip chars
   instruments:
     freq: Freq analysis
   instrument:
@@ -77,10 +83,11 @@ en:
     bigram: Bigrams freq diagram
     trigram: Trigrams freq diagram
   eds:
-    stream: Stream EDS
-    block: Block EDS
+    stream: EDS
+    block: EDS
   ds: &ds
     elliptic: Elliptic
+    gost34_10: GOST 34.10
   ciphers:
     stream: Stream ciphers
     block: Block ciphers
@@ -89,6 +96,7 @@ en:
     atbash: Atbash
     bellaso: Bellaso
     caesar: Caesar
+    enigma: Enigma
     elliptic: Elliptic
     polibiy: Polibiy
     rsa: RSA
@@ -109,7 +117,9 @@ en:
     over-tests: Over tests
   alphabet:
     en: English
+    en25: English (25 symbols)
     ru: Russian
+    ru33: Russian (33 symbols)
   placeholder:
     title: Input article title
     content: Insert text here ...

@@ -7,8 +7,8 @@ ru:
       main: Модули
       ciphers: Шифры
       cipher: Шифры
-      eds: ЭЦП
-      ds: ЭЦП
+      eds: ЦП
+      ds: ЦП
       instruments: Инструменты
       instrument: Инструменты
     test:
@@ -70,6 +70,12 @@ ru:
     shift: Смещение
     mod: Модуль
     rand: Случайный вектор
+    beta: β
+    gamma: γ
+    rings: Номера колец
+    keys: Положение колец
+    reflector: Номер рефлектора
+    flip: Таблица замены символов
   instruments:
     freq: Частотный анализ
   instrument:
@@ -77,10 +83,11 @@ ru:
     bigram: Биграммы
     trigram: Триграммы
   eds:
-    stream: Потоковые ЭЦП
-    block: Блочные ЭЦП
+    stream: ЭЦП
+    block: ЭЦП
   ds: &ds
     elliptic: Эллиптический
+    gost34_10: ГОСТ 34.10
   ciphers:
     stream: Потоковые шифры
     block: Блочные шифры
@@ -89,6 +96,7 @@ ru:
     atbash: Атбаш
     bellaso: Белазо
     caesar: Цезаря
+    enigma: Энигма
     polibiy: Квадрат Полибия
     rsa: RSA
     tritemius: Тритемия
@@ -108,7 +116,9 @@ ru:
     over-tests: Истекшие тесты
   alphabet:
     en: Английский
+    en25: Английский (25 букв)
     ru: Русский
+    ru33: Русский (33 буквы)
   placeholder:
     title: Введите название материала
     content: Введите текст ...
