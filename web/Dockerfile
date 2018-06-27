@@ -1,12 +1,12 @@
 FROM mhart/alpine-node:latest as node_build
 WORKDIR /opt/cryptonite
-COPY package.json .
-RUN npm install
-COPY src ./src
 COPY webpack.config.js .
 COPY jslintrc.json .
 COPY .eslintrc.json .
 COPY .babelrc .
+COPY package.json .
+RUN npm install
+COPY src ./src
 RUN npm run build
 
 FROM nginx:alpine
