@@ -3,6 +3,17 @@
 Collection of open source cipher and digital signature modules with simple web UI.
 Based on Flask & Vue.js
 
+## Demo app
+You can visit ```https://cryptnt.herokuapp.com/``` and use Russian demo-version of application.
+
+Admin credentials:
+  admin
+  q123
+
+User credentials:
+  student
+  qwerty123
+
 ## Install and run with [docker-compose https://docs.docker.com/compose/]
 
 ```bash
@@ -33,8 +44,8 @@ Run the application:
 ```bash
 #build JS and CSS with webpack
 cd web
-npm run build
-
+npm run dev
+...
 cd ../app
 #migrate or create your DB
 flash createdb #initialize DB for first run
@@ -51,4 +62,4 @@ python app.py
 
 You can also simply run entrypoint.sh instead of manual backend prepare and run.
 
-Finally visit ```http://localhost:5000```.
+Finally visit ```http://localhost:8080``` for Web UI or ```http://localhost:5000/api``` for REST API.
