@@ -9,4 +9,4 @@ cipher:
   encrypt:
     format: str
   decrypt:
-    format: int
+    format: str
