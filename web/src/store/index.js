@@ -282,13 +282,13 @@ let initial_state = {
   }
 }
 
-let plugins = [createPersistedState({
+let plugins = [createPersistedState(/*{
   storage: {
     getItem: key => Cookies.get(key),
     setItem: (key, value) => Cookies.set(key, value, { expires: 7, secure: secure }),
     removeItem: key => Cookies.remove(key)
   }
-})]
+}*/)]
 
 if (process.env.NODE_ENV !== 'production') {
   plugins = plugins.concat([createLogger()])
