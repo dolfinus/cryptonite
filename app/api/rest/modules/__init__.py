@@ -105,7 +105,8 @@ class Module_(SecureResource):
                 return {'error': 'Action not set!'}
             
             actions, _ = divide_dict(config, self.allowed_types)
-            if not action in first(actions):
+            method = first(actions)
+            if not action in method:
                 return {'error': 'Wrong action {}!'.format(action)}
             init   = {}
             if 'init' in config:
@@ -128,10 +129,6 @@ class Module_(SecureResource):
             """
             if not opentext:
                 return {'error': 'You should set input text or upload file!'}
-            print(action)
-            print(init)
-            print(params)
-            print(opentext)
             constructor = get_constructor(module)
             singletone  = constructor(**init)
             return getattr(singletone, action, None)(opentext, **dict(params))
