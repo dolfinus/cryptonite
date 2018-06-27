@@ -4,7 +4,7 @@ Collection of open source cipher and digital signature modules with simple web U
 Based on Flask & Vue.js
 
 ## Demo app
-You can visit ```https://cryptnt.herokuapp.com/``` and use Russian demo-version of application.
+You can visit https://cryptnt.herokuapp.com/ and use Russian demo-version of application.
 
 Admin credentials:
   admin
@@ -14,7 +14,7 @@ User credentials:
   student
   qwerty123
 
-## Install and run with [docker-compose https://docs.docker.com/compose/]
+## Install and run with [docker-compose|https://docs.docker.com/compose/]
 
 ```bash
 docker-compose up -d
@@ -24,7 +24,7 @@ And visit http://localhost:80
 Default admin login and password you can find in app/config/config.yml file in app.default.admin section.
 
 ## Install from scratch
-Firstly, install [autoenv https://github.com/kennethreitz/autoenv].
+Firstly, install [autoenv|https://github.com/kennethreitz/autoenv].
 
 Then install backend requrements:
 ```bash
@@ -62,4 +62,4 @@ python app.py
 
 You can also simply run entrypoint.sh instead of manual backend prepare and run.
 
-Finally visit ```http://localhost:8080``` for Web UI or ```http://localhost:5000/api``` for REST API.
+Finally visit http://localhost:8080 for Web UI or http://localhost:5000/api for REST API.
