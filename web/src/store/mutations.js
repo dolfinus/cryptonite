@@ -98,8 +98,26 @@ export default {
       anti = 'sign'
     }
     let fields = setMethodData(state.cipher.data[id].fields, input[1])
-    state.cipher.data[id].fields[method].value = fields[method].value
-    state.cipher.data[id].fields[anti].value = content
+
+    console.log(fields[method].value)
+    console.log(content)
+
+    let from_data = fields[method].value
+    let to_data   = content
+
+    if (Array.isArray(from_data)) {
+      from_data = from_data.join(', ')
+    }
+
+    if (Array.isArray(to_data)) {
+      to_data = to_data.join(', ')
+    }
+
+    console.log(from_data)
+    console.log(to_data)
+
+    state.cipher.data[id].fields[method].value = from_data
+    state.cipher.data[id].fields[anti].value   = to_data
   },
   setEds: function (state, value) {
     state.eds = {

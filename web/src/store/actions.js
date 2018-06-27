@@ -121,10 +121,9 @@ export default {
     Object.keys(dat).forEach((key) => {
       let value = dat[key]
       let [name, type] = key.split('_')
-      if (type === 'init' || type === method || type === '' || type === undefined) {
-        params[name] = dat[key]
-      }
+      params[name] = dat[key]
     })
+    console.log(params)
     backend.setToken(context.getters.getToken)
     let response = await backend.moduleSend(data[0], params)
     context.commit('setModuleResult', [data, response.data])

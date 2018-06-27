@@ -107,6 +107,32 @@ export default {
     },
     isLoading () {
       return this.$store.getters.getModuleLoading(this.$props.type)
+    },
+    str_array_pattern () {
+      let pattern = '^[a-zа-я\\s,[\\]]*$'
+      if (this.$refs.form) {
+        let input = this.$refs.form.alphabet_init
+        let alphabet = 'en'
+        if (input) {
+          alphabet = input.value
+          if (alphabet === 'en') {
+            pattern = '^[a-z\\s,[\\]]*$'
+          }
+          if (alphabet === 'en25') {
+            pattern = '^[abcdefghiklmnopqrstuvwxyz\\s,[\\]]*$'
+          }
+          if (alphabet === 'ru') {
+            pattern = '^[абвгдежзийклмнопрстуфхцчшщъыьэюя\\s,[\\]]*$'
+          }
+          if (alphabet === 'ru33') {
+            pattern = '^[а-я\\s,[\\]]*$'
+          }
+        }
+      }
+      return RegExp(pattern, 'iu')
+    },
+    int_array_pattern () {
+      return /^[\d\s,[\]]*$/iu
     }
   },
   watch: {
@@ -146,6 +172,7 @@ export default {
       if (fields === undefined || fields === null) {
         fields = []
       }
+      console.log(fields)
       fields.forEach( (field) => {
         let item = {
           type:      'input',
@@ -155,35 +182,70 @@ export default {
           model:     field.name + '_' + side,
           label:     (field.name.length > 1 ? this.$t('label.'+field.name) : field.name.capitalize())
         }
+        if (field.required) {
+          item.selectOptions = {
+            hideNoneSelectedText: true
+          }
+          item.required  = true
+          item.validator = [validators.required]
+        }
         if (field.type === 'textarea') {
-          item.type = 'textarea'
+          item.type = 'textArea'
+          item.validator = [validators.alpha]
         } else if (field.type === 'str') {
           item.inputType = 'text'
+          item.validator = [validators.alpha]
         } else if (field.type === 'int' || field.type === 'prime') {
           item.inputType = 'number'
+          item.validator = [validators.integer]
+        } else if (field.type === 'regexp') {
+          item.inputType = 'text'
+          item.pattern   = RegExp(field.expr, 'iu')
+          item.validator = [validators.regexp]
+        } else if (field.type === 'select') {
+          item.type = 'select'
+          item.values = field.values
+          if (!Array.isArray(field.values)) {
+            item.values = Object.keys(field.values).map((key) => {
+              return {
+                id: key,
+                name: (key.length > 1 ? this.$t('label.' + key) : key)
+              }
+            })
+          }
+          console.log(item)
         } else if (field.type === 'alphabet') {
           item.type = 'select'
           item.values = function () {
             return [
-              { id: 'en', name: this.$t('alphabet.en') },
-              { id: 'ru', name: this.$t('alphabet.ru') }
+              { id: 'en',   name: this.$t('alphabet.en') },
+              { id: 'en25', name: this.$t('alphabet.en25') },
+              { id: 'ru',   name: this.$t('alphabet.ru') },
+              { id: 'ru33', name: this.$t('alphabet.ru33') }
             ]
           }
           item.selectOptions = {
             hideNoneSelectedText: true
           }
           item.required  = true
-          item.validator = validators.required
+          item.validator = [validators.required]
         }
         config.push(item)
       })
       if (content !== undefined) {
-        config.push({
+        let textarea = {
           type:      'textArea',
           inputName: 'content' + '_' + side,
           model:     'content' + '_' + side,
           label:     this.$t('label.content')
-        })
+        }
+        if (content === 'str') {
+          textarea.pattern = this.str_array_pattern
+        } else if (content === 'int') {
+          textarea.pattern = this.int_array_pattern
+        }
+        textarea.validator = [validators.regexp]
+        config.push(textarea)
       }
       return {
         fields: config
@@ -202,13 +264,28 @@ export default {
       var data = {}
       let i = side === 'left' ? 0 : 1
       let method = this.allMethods[this.$props.type][i]
+      let fields = this.getField(method)
       for (var [key, value] of formData.entries()) {
-        data[key] = value
+        let [name, type] = key.split('_')
+        if (name === 'content' && type === method) {
+          let format = fields.format
+          if (format === 'int') {
+            data[key] = this.clear_upper(value).split(/\s/)
+          } else {
+            data[key] = this.clear_upper(value)
+          }
+        } else if (type === 'init' || type === method) {
+          data[key] = name === 'alphabet' ? value : value.toUpperCase()
+        }
       }
+      console.log(data)
       data.action = method
       this.$store.dispatch('moduleSend', [this.$route.params.id, data]).then(
         // this.$forceUpdate()
       )
+    },
+    clear_upper: function (str) {
+      return str.replace(/,/g, ' ').replace(/\s+/g, ' ').replace(/\[/g, '').replace(/\]/g, '').trim().toUpperCase()
     }
   },
   mounted () {
