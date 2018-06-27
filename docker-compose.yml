@@ -3,40 +3,49 @@ version: '2'
 services:
   web:
     build: ./web
-    image: cryptonite:web
+    image: dolfinus/cryptonite:web
     container_name: web
     ports:
-      - "80:80"
-      - "443:443"
+      - 80:80
+      - 443:443
     depends_on:
       - app
-    links:
+    networks:
       - app
   app:
     build: ./app
-    image: cryptonite:app
+    image: dolfinus/cryptonite:app
     container_name: app
-    command: "timeout t $DB_TIMEOUT ./entrypoint.sh --quiet --child --host=$DB_HOST --port=$DB_PORT"
+    command: "until psql -h $$DB_HOST -U $$DB_USER -d $$DB_NAME -c 'select 1'; do sleep $$WAIT_TIMEOUT; done; ./entrypoint.sh"
     ports:
-      - "5000:5000"
+      - 5000:5000
     depends_on:
       - db
-    environment: 
+    environment:
       FLASK_APP: app.py
+      WAIT_TIMEOUT: 5
       DB_HOST: db
-      DB_TIMEOUT: 30
-      DB_PORT: 5432
+      DB_USER: cryptonite
+      DB_NAME: cryptonite
     volumes:
-      - ./app:/opt/cryptonite
-    links:
+      - ./app:/opt/cryptonite:ro
+    networks:
+      - app
       - db
   db:
     image: postgres:alpine
+    container_name: db
     ports:
       - "5432:5432"
     environment: 
       POSTGRES_DB: cryptonite
       POSTGRES_USER: cryptonite
       POSTGRES_PASSWORD: cryptonite
+    networks:
+      - db
     volumes:
-      - ./app/storage/db/postgres/init.sql:/docker-entrypoint-initdb.d/init.sql
+      - ./app/storage/db/postgres/data:/var/lib/postgresql/data
+      #- ./app/storage/db/postgres/init.sql:/docker-entrypoint-initdb.d/init.sql
+networks:
+  app:
+  db:
