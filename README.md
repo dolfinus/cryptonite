@@ -14,7 +14,10 @@ User credentials:
   student
   qwerty123
 
-## Install and run with [docker-compose|https://docs.docker.com/compose/]
+## User manual
+You can find [user manual](https://github.com/dolfinus/latex-g7-32/files/2156916/-43_._._._._2018.pdf) in [my diploma repository](https://github.com/dolfinus/latex-g7-32) (in Russian).
+
+## Install and run with [docker-compose](https://docs.docker.com/compose/)
 
 ```bash
 docker-compose up -d
@@ -24,7 +27,7 @@ And visit http://localhost:80
 Default admin login and password you can find in app/config/config.yml file in app.default.admin section.
 
 ## Install from scratch
-Firstly, install [autoenv|https://github.com/kennethreitz/autoenv].
+Firstly, install [autoenv](https://github.com/kennethreitz/autoenv).
 
 Then install backend requrements:
 ```bash
