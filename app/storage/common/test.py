@@ -3,13 +3,20 @@ from config import config
 from datetime import datetime, date
 from dateutil.relativedelta import relativedelta
 from storage.common.base import unmask
-from storage.db.test import Tests, TestResults, TestAnswers, TestItems
 
 from .base import Format
 from .category import categorize
 
 DATE_FORMAT = '%Y-%m-%d'
 DATETIME_FORMAT="%Y-%m-%dT%H:%M:%S"
+
+if 'SQLALCHEMY_DATABASE_URI' in config:
+    if config['SQLALCHEMY_DATABASE_URI'].startswith('fs://'):
+        from storage.fs.test import Tests, TestResults, TestAnswers, TestItems
+    else:
+        from storage.db.test import Tests, TestResults, TestAnswers, TestItems
+else:
+    assert 'DB path is not set!'
 
 TestAnswerSingletone = TestAnswers()
 
