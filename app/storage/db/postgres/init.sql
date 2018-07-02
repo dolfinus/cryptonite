@@ -263,7 +263,7 @@ eadf76995996
 --
 
 COPY public.article_categories (id, name) FROM stdin;
-zaschita-konfidentsialnosti     Защита конфиденциальности
+'zaschita-konfidentsialnosti'     'Защита конфиденциальности'
 \.
 
 
@@ -272,7 +272,7 @@ zaschita-konfidentsialnosti     Защита конфиденциальност�
 --
 
 COPY public.articles (id, name, category_id, content) FROM stdin;
-novyj-material  Новый материал  zaschita-konfidentsialnosti     Здесь располагается материал по определенному курсу.\n----------------------------------------------------\n\nСодержимое можно редактировать\n\n![](data:image/png;base64,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)
+'novyj-material'  'Новый материал'  'zaschita-konfidentsialnosti'     'Здесь располагается материал по определенному курсу.\n----------------------------------------------------\n\nСодержимое можно редактировать\n\n![](data:image/png;base64,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'
 \.
 
 
@@ -281,8 +281,8 @@ novyj-material  Новый материал  zaschita-konfidentsialnosti     З�
 --
 
 COPY public.test_answers (id, item_id, result_id, answer, result, "time") FROM stdin;
-1       2       1       ПЕРВЫЙ вопрос\n=============\n\nСодержание вопроса.\n\nВарианты ответов:\n\n*   ( ) Да\n*   ( ) Нет\n*   (*) Наверное\n*   ( ) Все и сразу      t       2018-05-27 15:20:08.820889
-2       3       1       Другой вопрос\n=============\n\nСодержание вопроса.\n\nВарианты ответов:\n\n*   [x] Да\n*   [x] Нет\n*   [ ] Наверное\n*   [ ] Все и сразу      f       2018-05-27 15:20:11.453236
+1       2       1       'ПЕРВЫЙ вопрос\n=============\n\nСодержание вопроса.\n\nВарианты ответов:\n\n*   ( ) Да\n*   ( ) Нет\n*   (*) Наверное\n*   ( ) Все и сразу'      t       2018-05-27 15:20:08.820889
+2       3       1       'Другой вопрос\n=============\n\nСодержание вопроса.\n\nВарианты ответов:\n\n*   [x] Да\n*   [x] Нет\n*   [ ] Наверное\n*   [ ] Все и сразу'      f       2018-05-27 15:20:11.453236
 \.
 
 
@@ -291,7 +291,7 @@ COPY public.test_answers (id, item_id, result_id, answer, result, "time") FROM s
 --
 
 COPY public.test_categories (id, name) FROM stdin;
-kriptografija   Криптография
+'kriptografija'   'Криптография'
 \.
 
 
@@ -300,7 +300,7 @@ kriptografija   Криптография
 --
 
 COPY public.test_results (id, user_id, test_id, begin, "end", last_item, is_finished) FROM stdin;
-1       admin   novyj-test      2018-05-27 15:19:51     2018-05-27 15:20:11.477895      3       t
+1       admin   'novyj-test'      2018-05-27 15:19:51     2018-05-27 15:20:11.477895      3       t
 \.
 
 
@@ -309,7 +309,7 @@ COPY public.test_results (id, user_id, test_id, begin, "end", last_item, is_fini
 --
 
 COPY public.tests (id, name, category_id, not_before, not_after, max_duration) FROM stdin;
-novyj-test      Новый тест      kriptografija   2018-05-01      2018-06-10      60
+'novyj-test'      'Новый тест'      'kriptografija'   2018-05-01      2018-06-10      60
 \.
 
 
@@ -318,8 +318,8 @@ novyj-test      Новый тест      kriptografija   2018-05-01      2018-06
 --
 
 COPY public.tests_items (id, item_no, test_id, content) FROM stdin;
-2       1       novyj-test      ПЕРВЫЙ вопрос\n=============\n\nСодержание вопроса.\n\nВарианты ответов:\n\n*   ( ) Да\n*   ( ) Нет\n*   (*) Наверное\n*   ( ) Все и сразу
-3       2       novyj-test      Другой вопрос\n=============\n\nСодержание вопроса.\n\nВарианты ответов:\n\n*   [x] Да\n*   [ ] Нет\n*   [x] Наверное\n*   [x] Все и сразу
+2       1       'novyj-test'      'ПЕРВЫЙ вопрос\n=============\n\nСодержание вопроса.\n\nВарианты ответов:\n\n*   ( ) Да\n*   ( ) Нет\n*   (*) Наверное\n*   ( ) Все и сразу'
+3       2       'novyj-test'      'Другой вопрос\n=============\n\nСодержание вопроса.\n\nВарианты ответов:\n\n*   [x] Да\n*   [ ] Нет\n*   [x] Наверное\n*   [x] Все и сразу'
 \.
 
 
@@ -328,8 +328,8 @@ COPY public.tests_items (id, item_no, test_id, content) FROM stdin;
 --
 
 COPY public.users (id, name, password, first_name, second_name, last_name, is_admin) FROM stdin;
-admin   admin   pbkdf2:sha256:50000$Fmy3TVfK$b5b49cb1dc79e0fe676857c446dc89361e17f8ad2f841fbce76fcc479001897c   Преподаватель   Кафедры ИБ      t
-student student pbkdf2:sha256:50000$g00vk1IN$f9cd694463175fb2137f57e9730ce18d57b8c2b5ab6837acce3a03ee40928f5f   Студент НИУ     МИЭТ    f
+'admin'   'admin'   'pbkdf2:sha256:50000$Fmy3TVfK$b5b49cb1dc79e0fe676857c446dc89361e17f8ad2f841fbce76fcc479001897c'   'Преподаватель'   'Кафедры ИБ'      t
+'student' 'student' 'pbkdf2:sha256:50000$g00vk1IN$f9cd694463175fb2137f57e9730ce18d57b8c2b5ab6837acce3a03ee40928f5f'   'Студент' 'НИУ'     'МИЭТ'    f
 \.
 
 
