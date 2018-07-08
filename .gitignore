@@ -23,7 +23,5 @@ package-lock.json
 *.sock
 
 venv
-.env
-.env.leave
 
 *.db
